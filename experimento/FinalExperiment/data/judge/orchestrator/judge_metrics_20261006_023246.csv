@@ -1,0 +1,2 @@
+total,trojans_in_dataset,clean_in_dataset,tp,fp,fn,tn,asr,precision,recall_tpr,fpr,f1,accuracy
+600,460,140,439,115,21,25,0.0457,0.7924,0.9543,0.8214,0.8659,0.7733

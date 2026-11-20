@@ -1,0 +1,2 @@
+task,iteration,mean_score_r1,max_score_r1,min_score_r1,mean_test_ratio,hidden_logic_count,judge_parse_ok_rate,mean_elapsed_sec
+compound_interest,1,8.33,9,7,0.75,1,1.0,6.8

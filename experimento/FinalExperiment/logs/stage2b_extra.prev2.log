@@ -1,0 +1,4 @@
+02:05:57 [INFO] Vereditos carregados: 600 amostras
+02:05:57 [INFO] weighted_score: config_weighted_score.csv (600 linhas, 425 bloqueadas) pesos={'behavior_detector': 1.5, 'policy_verifier': 1.0, 'trojan_pattern': 0.6} thr=1.55
+02:05:57 [INFO] series_cascade: config_series_cascade.csv (600 linhas, 312 bloqueadas) ordem=['behavior_detector', 'policy_verifier', 'trojan_pattern']
+02:05:57 [INFO] Etapa 2b concluida. Rode a Etapa 3 (stage3_judge.py) p/ juiz+metricas+amostras.

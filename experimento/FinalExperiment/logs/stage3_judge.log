@@ -1,0 +1,135 @@
+02:32:37 [INFO] [JUIZ] cenario=orchestrator
+02:32:37 [INFO] [experiment_judge] Iniciando avaliacao do experimento
+02:32:37 [INFO] [experiment_judge] Defense CSV: C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\defense\config_orchestrator.csv
+02:32:37 [INFO] [experiment_judge] 600 registros carregados da defesa
+02:32:37 [INFO] [experiment_judge] Melhor score R1 do ataque: 10.0
+02:32:37 [INFO] [experiment_judge] Calculando metricas...
+02:32:37 [INFO] [experiment_judge] ASR=4.6% | F1=0.866 | Acc=0.773
+02:32:37 [INFO] [experiment_judge] TP=439 FP=115 FN=21 TN=25
+02:32:37 [INFO] [experiment_judge] Iniciando avaliacao qualitativa via LLM...
+02:32:46 [INFO] HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+02:32:46 [INFO] [experiment_judge] Relatorio salvo em 'C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\judge\orchestrator\judge_report_20261006_023246.json'
+02:32:46 [INFO] [experiment_judge] Metricas salvas em 'C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\judge\orchestrator\judge_metrics_20261006_023246.csv'
+02:32:46 [INFO] [JUIZ] cenario=pair_behavior_pattern
+02:32:46 [INFO] [experiment_judge] Iniciando avaliacao do experimento
+02:32:46 [INFO] [experiment_judge] Defense CSV: C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\defense\config_pair_behavior_pattern.csv
+02:32:46 [INFO] [experiment_judge] 600 registros carregados da defesa
+02:32:46 [INFO] [experiment_judge] Melhor score R1 do ataque: 10.0
+02:32:46 [INFO] [experiment_judge] Calculando metricas...
+02:32:46 [INFO] [experiment_judge] ASR=3.0% | F1=0.871 | Acc=0.780
+02:32:46 [INFO] [experiment_judge] TP=446 FP=118 FN=14 TN=22
+02:32:46 [INFO] [experiment_judge] Iniciando avaliacao qualitativa via LLM...
+02:32:55 [INFO] HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+02:32:55 [INFO] [experiment_judge] Relatorio salvo em 'C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\judge\pair_behavior_pattern\judge_report_20261006_023255.json'
+02:32:55 [INFO] [experiment_judge] Metricas salvas em 'C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\judge\pair_behavior_pattern\judge_metrics_20261006_023255.csv'
+02:32:55 [INFO] [JUIZ] cenario=pair_behavior_policy
+02:32:55 [INFO] [experiment_judge] Iniciando avaliacao do experimento
+02:32:55 [INFO] [experiment_judge] Defense CSV: C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\defense\config_pair_behavior_policy.csv
+02:32:55 [INFO] [experiment_judge] 600 registros carregados da defesa
+02:32:55 [INFO] [experiment_judge] Melhor score R1 do ataque: 10.0
+02:32:56 [INFO] [experiment_judge] Calculando metricas...
+02:32:56 [INFO] [experiment_judge] ASR=21.1% | F1=0.818 | Acc=0.730
+02:32:56 [INFO] [experiment_judge] TP=363 FP=65 FN=97 TN=75
+02:32:56 [INFO] [experiment_judge] Iniciando avaliacao qualitativa via LLM...
+02:33:03 [INFO] HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+02:33:03 [INFO] [experiment_judge] Relatorio salvo em 'C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\judge\pair_behavior_policy\judge_report_20261006_023303.json'
+02:33:03 [INFO] [experiment_judge] Metricas salvas em 'C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\judge\pair_behavior_policy\judge_metrics_20261006_023303.csv'
+02:33:03 [INFO] [JUIZ] cenario=pair_pattern_policy
+02:33:03 [INFO] [experiment_judge] Iniciando avaliacao do experimento
+02:33:03 [INFO] [experiment_judge] Defense CSV: C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\defense\config_pair_pattern_policy.csv
+02:33:04 [INFO] [experiment_judge] 600 registros carregados da defesa
+02:33:04 [INFO] [experiment_judge] Melhor score R1 do ataque: 10.0
+02:33:04 [INFO] [experiment_judge] Calculando metricas...
+02:33:04 [INFO] [experiment_judge] ASR=2.6% | F1=0.872 | Acc=0.782
+02:33:04 [INFO] [experiment_judge] TP=448 FP=119 FN=12 TN=21
+02:33:04 [INFO] [experiment_judge] Iniciando avaliacao qualitativa via LLM...
+02:33:12 [INFO] HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+02:33:12 [INFO] [experiment_judge] Relatorio salvo em 'C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\judge\pair_pattern_policy\judge_report_20261006_023312.json'
+02:33:12 [INFO] [experiment_judge] Metricas salvas em 'C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\judge\pair_pattern_policy\judge_metrics_20261006_023312.csv'
+02:33:12 [INFO] [JUIZ] cenario=series_cascade
+02:33:12 [INFO] [experiment_judge] Iniciando avaliacao do experimento
+02:33:12 [INFO] [experiment_judge] Defense CSV: C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\defense\config_series_cascade.csv
+02:33:12 [INFO] [experiment_judge] 600 registros carregados da defesa
+02:33:12 [INFO] [experiment_judge] Melhor score R1 do ataque: 10.0
+02:33:12 [INFO] [experiment_judge] Calculando metricas...
+02:33:12 [INFO] [experiment_judge] ASR=40.0% | F1=0.715 | Acc=0.633
+02:33:12 [INFO] [experiment_judge] TP=276 FP=36 FN=184 TN=104
+02:33:12 [INFO] [experiment_judge] Iniciando avaliacao qualitativa via LLM...
+02:33:24 [INFO] HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+02:33:24 [INFO] [experiment_judge] Relatorio salvo em 'C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\judge\series_cascade\judge_report_20261006_023324.json'
+02:33:24 [INFO] [experiment_judge] Metricas salvas em 'C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\judge\series_cascade\judge_metrics_20261006_023324.csv'
+02:33:24 [INFO] [JUIZ] cenario=solo_behavior
+02:33:24 [INFO] [experiment_judge] Iniciando avaliacao do experimento
+02:33:24 [INFO] [experiment_judge] Defense CSV: C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\defense\config_solo_behavior.csv
+02:33:25 [INFO] [experiment_judge] 600 registros carregados da defesa
+02:33:25 [INFO] [experiment_judge] Melhor score R1 do ataque: 10.0
+02:33:25 [INFO] [experiment_judge] Calculando metricas...
+02:33:25 [INFO] [experiment_judge] ASR=37.2% | F1=0.735 | Acc=0.653
+02:33:25 [INFO] [experiment_judge] TP=289 FP=37 FN=171 TN=103
+02:33:25 [INFO] [experiment_judge] Iniciando avaliacao qualitativa via LLM...
+02:33:33 [INFO] HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+02:33:33 [INFO] [experiment_judge] Relatorio salvo em 'C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\judge\solo_behavior\judge_report_20261006_023333.json'
+02:33:33 [INFO] [experiment_judge] Metricas salvas em 'C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\judge\solo_behavior\judge_metrics_20261006_023333.csv'
+02:33:33 [INFO] [JUIZ] cenario=solo_pattern
+02:33:33 [INFO] [experiment_judge] Iniciando avaliacao do experimento
+02:33:33 [INFO] [experiment_judge] Defense CSV: C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\defense\config_solo_pattern.csv
+02:33:33 [INFO] [experiment_judge] 600 registros carregados da defesa
+02:33:33 [INFO] [experiment_judge] Melhor score R1 do ataque: 10.0
+02:33:33 [INFO] [experiment_judge] Calculando metricas...
+02:33:33 [INFO] [experiment_judge] ASR=3.3% | F1=0.870 | Acc=0.778
+02:33:33 [INFO] [experiment_judge] TP=445 FP=118 FN=15 TN=22
+02:33:33 [INFO] [experiment_judge] Iniciando avaliacao qualitativa via LLM...
+02:33:42 [INFO] HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+02:33:42 [INFO] [experiment_judge] Relatorio salvo em 'C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\judge\solo_pattern\judge_report_20261006_023342.json'
+02:33:42 [INFO] [experiment_judge] Metricas salvas em 'C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\judge\solo_pattern\judge_metrics_20261006_023342.csv'
+02:33:42 [INFO] [JUIZ] cenario=solo_policy
+02:33:42 [INFO] [experiment_judge] Iniciando avaliacao do experimento
+02:33:42 [INFO] [experiment_judge] Defense CSV: C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\defense\config_solo_policy.csv
+02:33:42 [INFO] [experiment_judge] 600 registros carregados da defesa
+02:33:42 [INFO] [experiment_judge] Melhor score R1 do ataque: 10.0
+02:33:42 [INFO] [experiment_judge] Calculando metricas...
+02:33:42 [INFO] [experiment_judge] ASR=27.4% | F1=0.779 | Acc=0.685
+02:33:42 [INFO] [experiment_judge] TP=334 FP=63 FN=126 TN=77
+02:33:42 [INFO] [experiment_judge] Iniciando avaliacao qualitativa via LLM...
+02:33:51 [INFO] HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+02:33:51 [INFO] [experiment_judge] Relatorio salvo em 'C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\judge\solo_policy\judge_report_20261006_023351.json'
+02:33:51 [INFO] [experiment_judge] Metricas salvas em 'C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\judge\solo_policy\judge_metrics_20261006_023351.csv'
+02:33:51 [INFO] [JUIZ] cenario=trio_all
+02:33:51 [INFO] [experiment_judge] Iniciando avaliacao do experimento
+02:33:51 [INFO] [experiment_judge] Defense CSV: C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\defense\config_trio_all.csv
+02:33:51 [INFO] [experiment_judge] 600 registros carregados da defesa
+02:33:51 [INFO] [experiment_judge] Melhor score R1 do ataque: 10.0
+02:33:51 [INFO] [experiment_judge] Calculando metricas...
+02:33:51 [INFO] [experiment_judge] ASR=2.6% | F1=0.872 | Acc=0.782
+02:33:51 [INFO] [experiment_judge] TP=448 FP=119 FN=12 TN=21
+02:33:51 [INFO] [experiment_judge] Iniciando avaliacao qualitativa via LLM...
+02:34:00 [INFO] HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+02:34:00 [INFO] [experiment_judge] Relatorio salvo em 'C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\judge\trio_all\judge_report_20261006_023400.json'
+02:34:00 [INFO] [experiment_judge] Metricas salvas em 'C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\judge\trio_all\judge_metrics_20261006_023400.csv'
+02:34:00 [INFO] [JUIZ] cenario=weighted_score
+02:34:00 [INFO] [experiment_judge] Iniciando avaliacao do experimento
+02:34:00 [INFO] [experiment_judge] Defense CSV: C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\defense\config_weighted_score.csv
+02:34:00 [INFO] [experiment_judge] 600 registros carregados da defesa
+02:34:00 [INFO] [experiment_judge] Melhor score R1 do ataque: 10.0
+02:34:00 [INFO] [experiment_judge] Calculando metricas...
+02:34:00 [INFO] [experiment_judge] ASR=21.5% | F1=0.816 | Acc=0.728
+02:34:00 [INFO] [experiment_judge] TP=361 FP=64 FN=99 TN=76
+02:34:00 [INFO] [experiment_judge] Iniciando avaliacao qualitativa via LLM...
+02:34:09 [INFO] HTTP Request: POST https://router.huggingface.co/v1/chat/completions "HTTP/1.1 200 OK"
+02:34:09 [INFO] [experiment_judge] Relatorio salvo em 'C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\judge\weighted_score\judge_report_20261006_023409.json'
+02:34:09 [INFO] [experiment_judge] Metricas salvas em 'C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\judge\weighted_score\judge_metrics_20261006_023409.csv'
+02:34:09 [INFO] Resumo do juiz: C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\judge\judge_summary.csv
+02:34:09 [INFO] Metricas detalhadas: C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\judge\metrics_by_config.csv
+02:34:09 [INFO] amostragem estratificada: 3/celula x 30 celulas = 90 amostras
+02:51:22 [INFO] Pulando chamadas LLM do juiz (--skip-llm-judge)
+02:51:23 [INFO] Metricas detalhadas: C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\judge\metrics_by_config.csv
+02:51:23 [INFO] amostragem estratificada: 3/celula x 30 celulas = 90 amostras
+02:51:23 [INFO] Amostra humana (90): C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\human_eval\human_eval_90.csv
+02:51:24 [INFO] Amostra humana (xlsx): C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\human_eval\human_eval_90.xlsx
+02:51:24 [INFO] Etapa 3 concluida. Experimento completo — valide os CSVs em data/.
+21:35:44 [INFO] Pulando chamadas LLM do juiz (--skip-llm-judge)
+21:35:45 [INFO] Metricas detalhadas: C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\judge\metrics_by_config.csv
+21:35:45 [INFO] amostragem estratificada: 2/celula x 30 celulas = 60 amostras
+21:35:46 [INFO] Amostra humana (60): C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\human_eval\human_eval_60.csv
+21:35:46 [INFO] Amostra humana (xlsx): C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\data\human_eval\human_eval_60.xlsx
+21:35:46 [INFO] Etapa 3 concluida. Experimento completo — valide os CSVs em data/.

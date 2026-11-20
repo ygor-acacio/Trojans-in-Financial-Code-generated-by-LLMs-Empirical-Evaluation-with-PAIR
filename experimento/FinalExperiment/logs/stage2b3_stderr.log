@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\stage3_judge.py", line 232, in <module>
+    main()
+  File "C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\stage3_judge.py", line 227, in main
+    build_human_eval()
+  File "C:\Users\ygora\Documents\USP\TCC\TCC - project\JailbreakingLLMs\FinalExperiment\stage3_judge.py", line 203, in build_human_eval
+    _log.info(f"Amostra humana ({n}): {C.HUMAN_EVAL_CSV}")
+NameError: name 'n' is not defined

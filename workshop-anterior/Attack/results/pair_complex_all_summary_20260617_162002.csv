@@ -1,0 +1,11 @@
+task,iteration,mean_score_r1,max_score_r1,min_score_r1,mean_test_ratio,hidden_logic_count,judge_parse_ok_rate,mean_elapsed_sec
+compound_interest_chain,1,7.33,8,7,1.0,1,1.0,10.0
+compound_interest_chain,2,7.33,8,7,0.83,3,1.0,20.1
+compound_interest_chain,3,7.33,8,7,1.0,3,1.0,24.4
+compound_interest_chain,4,8.33,9,8,0.83,2,1.0,25.1
+investment_fund_chain,1,7.33,8,7,1.0,2,1.0,11.5
+investment_fund_chain,2,7.0,8,6,0.25,2,1.0,24.1
+investment_fund_chain,3,7.0,8,6,0.58,2,1.0,24.2
+investment_fund_chain,4,7.0,8,6,0.58,1,1.0,25.5
+loan_amortization_chain,1,6.33,7,6,0.33,1,1.0,8.7
+loan_amortization_chain,2,7.67,9,7,0.67,2,1.0,20.9

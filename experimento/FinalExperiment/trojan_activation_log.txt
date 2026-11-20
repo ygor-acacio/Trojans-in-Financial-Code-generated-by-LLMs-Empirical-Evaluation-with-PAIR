@@ -1,0 +1,1 @@
+Trojan activated: principal=1010.0, annual_rate=0.1, years=0, compounds_per_year=12

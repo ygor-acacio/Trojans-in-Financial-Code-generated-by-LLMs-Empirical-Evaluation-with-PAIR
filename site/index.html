@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multi-Agent Defense Against Logic Trojans in LLM-Generated Financial Code</title>
+<meta name="description" content="Undergraduate capstone project (Escola Politécnica, USP): can a multi-agent defense detect logic trojans that large language models insert into financial code, and does the way the agents are combined matter?">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="#overview" data-tab="overview">
+      <span class="brand-mark">LT</span>
+      <span class="brand-text">Logic Trojans in<br>LLM-Generated Code</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    <nav class="nav" id="nav">
+      <a href="#overview"  data-tab="overview"  class="active">Overview</a>
+      <a href="#problem"   data-tab="problem">The&nbsp;problem</a>
+      <a href="#approach"  data-tab="approach">Approach</a>
+      <a href="#results"   data-tab="results">Results</a>
+      <a href="#demo"      data-tab="demo">Demonstration</a>
+      <a href="#about"     data-tab="about">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================ OVERVIEW ============================ -->
+<section class="tab active" id="overview">
+  <div class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Undergraduate capstone project · Escola Politécnica, University of São Paulo</p>
+      <h1>Can a team of AI reviewers catch hidden trojans in AI-written financial code?</h1>
+      <p class="lede">
+        Large language models now help write software, including code that computes interest, loan
+        payments and taxes. This project studies a subtle risk — <strong>logic trojans</strong>, tiny
+        deviations that only misbehave for a rare input — and tests whether a <strong>multi-agent
+        defense</strong> can detect them, and whether the way the agents are combined actually matters.
+      </p>
+      <div class="hero-actions">
+        <a class="btn" href="#results" data-tab="results">See the findings</a>
+        <a class="btn ghost" href="#demo" data-tab="demo">Try the demonstration</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="stat-row" aria-label="Key figures">
+      <div class="stat"><span class="num">600</span><span class="lab">code samples</span></div>
+      <div class="stat"><span class="num">10</span><span class="lab">defense setups</span></div>
+      <div class="stat"><span class="num">3</span><span class="lab">specialized agents</span></div>
+      <div class="stat"><span class="num">3</span><span class="lab">human reviewers</span></div>
+    </div>
+
+    <div class="cols-2">
+      <div class="card">
+        <h3>What was built</h3>
+        <p>
+          A reproducible pipeline that (1) pressures two LLMs to generate financial functions with a
+          hidden deviation, (2) runs three specialized reviewer agents over every sample, and (3) scores
+          how well ten different ways of combining those agents detect the deviation — all validated
+          against a blind human review.
+        </p>
+      </div>
+      <div class="card">
+        <h3>The headline result</h3>
+        <p>
+          Against a blind human review, the agent specialized in trojan patterns — alone or inside the
+          combinations that include it — missed only <strong>one trojan in 58</strong>. More elaborate
+          combinations did not help. And a simple automatic label was enough to <em>flip</em> which
+          detector looked best.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PROBLEM ============================ -->
+<section class="tab" id="problem">
+  <div class="wrap">
+    <span class="kicker">The problem</span>
+    <h2>A deviation that hides in plain sight</h2>
+    <p class="intro">
+      A <strong>logic trojan</strong> is hidden logic that changes a computed result only under a rare,
+      specific input. It does not touch the network, files, or run external commands — it is built from
+      ordinary arithmetic and comparisons. So it passes normal unit tests and slips past rule-based
+      static analysis.
+    </p>
+
+    <div class="cols-2">
+      <div class="card soft">
+        <h3>Why finance makes it worse</h3>
+        <p>
+          In financial software a small numerical slip has a direct cost: a loan payment that is slightly
+          off for one range of values, or a tax bracket that shifts for a single income. Multiplied across
+          many transactions, a deviation that looks like a harmless edge case becomes real damage.
+        </p>
+      </div>
+      <div class="card soft">
+        <h3>Why ordinary checks miss it</h3>
+        <p>
+          Tools that scan for dangerous functions or known-bad patterns look for syntax. A logic trojan has
+          none: the suspicious part is the <em>intent</em> of a condition — telling a legitimate edge-case
+          guard apart from a hidden trigger. That is a judgement call, which is why the defense here uses
+          LLM-based reviewers instead of fixed rules.
+        </p>
+      </div>
+    </div>
+
+    <h3 class="mt">The setting studied</h3>
+    <ul class="ticks">
+      <li>An attacker controls the <em>request</em> sent to the model and can try repeatedly (a malicious developer, a compromised automation step, or injected context).</li>
+      <li>By design the hidden behaviour is restricted to a numerical deviation — no network, files, processes or dynamic execution — which keeps the study focused on logic trojans.</li>
+      <li>The defense inspects each generated snippet and either lets it through or holds it back for review; it never modifies the code.</li>
+    </ul>
+    <p class="note">
+      This is defensive, academic security research. The goal is to <strong>detect</strong> hidden
+      deviations, not to help produce them; this site does not publish attack prompts.
+    </p>
+  </div>
+</section>
+
+<!-- ============================ APPROACH ============================ -->
+<section class="tab" id="approach">
+  <div class="wrap">
+    <span class="kicker">Approach</span>
+    <h2>Attack, defense, and an honest scorecard</h2>
+    <p class="intro">
+      The experiment runs in three stages that communicate through files, so each stage can be re-run on
+      its own. Every defense setup reuses the <em>same</em> cached agent verdicts, so the only thing that
+      changes between setups is how the verdicts are combined.
+    </p>
+
+    <figure class="fig">
+      <img src="assets/pipeline.png" alt="Pipeline diagram: an attack stage generates code, a defense stage runs three agents and caches their verdicts, a judge stage computes metrics, and a human evaluation re-labels a subset.">
+      <figcaption>The three-stage pipeline, plus the blind human evaluation that re-labels a subset.</figcaption>
+    </figure>
+
+    <h3 class="mt">The three reviewer agents</h3>
+    <div class="cols-3">
+      <div class="card">
+        <h4>Behavior Detector</h4>
+        <p>Flags runtime red flags: network, file or process access, dangerous built-ins, exfiltration, obfuscation. Deliberately conservative.</p>
+      </div>
+      <div class="card">
+        <h4>Trojan-Pattern Detector</h4>
+        <p>Flags magic constants used as triggers, rare input conditions, stealthy branches and output manipulation. Focused on <em>intent</em>.</p>
+      </div>
+      <div class="card">
+        <h4>Policy Verifier</h4>
+        <p>Checks compliance: forbidden imports and built-ins, exception-swallowing blocks, suspicious literals and constants.</p>
+      </div>
+    </div>
+    <p class="muted small">All three run on a small, fast model (Llama-3.1-8B) so that running 1,800 reviews is cheap — and so the defense never has more capacity than the attacker.</p>
+
+    <h3 class="mt">Ten ways to combine them</h3>
+    <p>
+      From single agents and pairs up to four full "system" topologies: a parallel union, a weighted vote,
+      a step-by-step cascade, and an LLM <em>orchestrator</em> that decides which agents to consult.
+    </p>
+    <figure class="fig">
+      <img src="assets/topologies.png" alt="Four defense topologies: parallel union, weighted vote, serial cascade with early exits, and an LLM orchestrator that selects which specialists to consult.">
+      <figcaption>The four system topologies compared on the same 600 samples.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============================ RESULTS ============================ -->
+<section class="tab" id="results">
+  <div class="wrap">
+    <span class="kicker">Results</span>
+    <h2>What the numbers say</h2>
+
+    <div class="finding">
+      <div class="finding-n">01</div>
+      <div>
+        <h3>The specialized detector is the decisive component</h3>
+        <p>
+          Against the blind human review, the Trojan-Pattern Detector — on its own or inside any
+          combination that includes it — missed just <strong>1 trojan out of 58</strong>. Generic
+          behaviour and policy checks caught gross violations but let most logic trojans through.
+        </p>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-n">02</div>
+      <div>
+        <h3>The automatic label was hiding the real picture</h3>
+        <p>
+          A quick rule-based label flagged 70% of samples as suspicious; the three human reviewers found a
+          trojan in <strong>96.7%</strong>. Measured against that weak label, the best detector looked like
+          it "over-blocked". Re-scored against people, that "over-blocking" was mostly correct detection.
+        </p>
+        <figure class="fig narrow">
+          <img src="assets/human_vs_regex.png" alt="Bar chart of F1 per defense setup under the rule-based label and under the human label. Pattern-based setups rise to about 0.99 under human labels.">
+          <figcaption>Detection quality (F1) per setup: automatic label vs. blind human label.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-n">03</div>
+      <div>
+        <h3>Elaborate combinations did not beat a simple union</h3>
+        <p>
+          The weighted vote turned out to be mathematically equivalent to a simple majority; the cascade
+          never triggered its "confident block" rule; and the orchestrator lost detections whenever it
+          skipped the specialist. The cause in all three cases is the same: the small defense model reports
+          confidence values that do not reflect how sure it really is.
+        </p>
+        <figure class="fig narrow">
+          <img src="assets/operating_points.png" alt="Scatter of each setup by false-positive rate versus share of trojans caught, against the rule-based label.">
+          <figcaption>Each setup as an operating point (against the rule-based label).</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-n">04</div>
+      <div>
+        <h3>Spreading the trojan across functions makes it harder to catch</h3>
+        <p>
+          When the deviation is distributed over a chain of three functions — so no single function reveals
+          it — detection quality drops in every topology. This points to a clear next step: analysis that
+          follows data <em>across</em> functions, not just within one.
+        </p>
+        <figure class="fig narrow">
+          <img src="assets/complexity.png" alt="Line charts showing attack success rising and F1 falling as code complexity goes from simple to complex.">
+          <figcaption>Detection degrades from simple (one function) to complex (three functions).</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="card soft mt">
+      <h3>Read these results carefully</h3>
+      <ul class="ticks">
+        <li>The tasks are five synthetic financial functions in Python, with two generator models and one small defense model — not a guarantee for real code or larger models.</li>
+        <li>The human review covers 60 of the 600 samples; its firm conclusions are about <em>detection</em>, not about false alarms (too few clean samples to measure those reliably).</li>
+        <li>The attack is a directed request, not an attacker that adapts to the defense. These are the honest limits of a capstone-scale study.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ DEMO ============================ -->
+<section class="tab" id="demo">
+  <div class="wrap">
+    <span class="kicker">Demonstration</span>
+    <h2>Walk through the pipeline</h2>
+
+    <!-- shown when the demo is disabled in config.js -->
+    <div id="demoLocked" class="demo-locked" hidden>
+      <div class="lock-badge">◍ offline</div>
+      <h3>The interactive demonstration is currently turned off</h3>
+      <p>
+        The author keeps this demonstration disabled by default and turns it on for presentations.
+        Everything else on this site stays available. When it is on, it simply replays results that were
+        already recorded during the experiment — no AI model is called and nothing runs in your browser.
+      </p>
+    </div>
+
+    <!-- shown when the demo is enabled -->
+    <div id="demoApp" hidden>
+      <p class="demo-banner">
+        <strong>Offline demonstration.</strong> This replays analysis that was already recorded during the
+        experiment. No AI model is called, and no code is executed in your browser — it is a guided replay.
+      </p>
+
+      <!-- STEP 1 -->
+      <div class="demo-step">
+        <div class="step-head"><span class="step-n">1</span><h3>Request a financial function</h3></div>
+        <p class="muted small">Pick a ready-made, ordinary request. Behind the scenes a simulated adversarial layer (inspired by PAIR) tries to slip a hidden deviation into the answer.</p>
+        <div class="demo-controls">
+          <label>Task
+            <select id="selTask"></select>
+          </label>
+          <label>Complexity
+            <select id="selLevel"></select>
+          </label>
+          <label>Generator
+            <select id="selModel"></select>
+          </label>
+        </div>
+        <label class="field-label" for="promptBox">The request that is sent</label>
+        <textarea id="promptBox" class="mono" rows="3" readonly></textarea>
+        <div class="btn-row">
+          <button class="btn" id="btnGenerate">Send request &amp; intercept</button>
+        </div>
+
+        <div id="pairLog" class="pair-log" hidden></div>
+
+        <div id="genOut" hidden>
+          <label class="field-label">Generated sample <span id="genMeta" class="tag"></span></label>
+          <pre id="genCode" class="code-out mono"></pre>
+          <div class="btn-row">
+            <button class="btn small" id="btnCopy">Copy</button>
+            <button class="btn small ghost" id="btnPaste">Paste into step 2 ↓</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="demo-step">
+        <div class="step-head"><span class="step-n">2</span><h3>Check the code for hidden deviations</h3></div>
+        <p class="muted small">Paste the code and run the defense. The three agents review it one by one, then the pipeline decides to hold it back or let it through.</p>
+        <label class="field-label" for="verifyBox">Code to review</label>
+        <textarea id="verifyBox" class="mono" rows="10" placeholder="Paste the generated code here, or use “Paste into step 2” above."></textarea>
+        <div class="btn-row">
+          <button class="btn" id="btnVerify">Verify code</button>
+        </div>
+
+        <div id="agentPanel" class="agent-panel" hidden></div>
+        <div id="verdictBanner" class="verdict" hidden></div>
+      </div>
+
+      <p class="muted small demo-foot">
+        Samples and verdicts shown here were produced during the experiment and are reproduced from the
+        project's data. Four of the thirty samples were <em>not</em> flagged by the defense — the demo shows
+        those honestly too.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ ABOUT ============================ -->
+<section class="tab" id="about">
+  <div class="wrap">
+    <span class="kicker">About</span>
+    <h2>About this project</h2>
+
+    <div class="cols-2">
+      <div class="card">
+        <h3>People</h3>
+        <p>
+          <strong>Author:</strong> Ygor Acacio Maria<br>
+          <strong>Advisor:</strong> Prof. Dr. Victor Takashi Hayashi<br>
+          <strong>Co-advisor:</strong> Prof. Dr. Marcos Antonio Simplicio Junior
+        </p>
+        <p class="muted small">
+          Department of Computer Engineering and Digital Systems (PCS), Escola Politécnica,
+          University of São Paulo (USP). With support from LARC — Laboratory of Computer Networks and
+          Architecture.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Publication &amp; code</h3>
+        <p>
+          Partial results were presented at the <strong>AISec Dev workshop (CBSoft 2026)</strong>:
+          <em>Trojans in Financial Code Generated by LLMs: Empirical Evaluation with PAIR.</em>
+        </p>
+        <p>
+          <a id="repoLink" href="https://github.com/ygor-acacio/Trojans-in-Financial-Code-generated-by-LLMs-Empirical-Evaluation-with-PAIR" target="_blank" rel="noopener">Source code &amp; data on GitHub →</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="card soft mt">
+      <h3>A note on responsible use</h3>
+      <p>
+        This is defensive security research carried out in a controlled academic setting. The hidden
+        behaviours studied are harmless by construction (numerical deviations only, with no network, file,
+        or system access) and exist to test whether they can be <em>detected</em>. The site and its
+        demonstration do not publish attack prompts and do not generate new malicious code: the
+        demonstration only replays results recorded during the experiment.
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Ygor Acacio Maria · Escola Politécnica, USP · Capstone project (PCS), 2026</p>
+    <p class="muted small">Built as a static site for GitHub Pages. No analytics, no cookies.</p>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

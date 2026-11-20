@@ -1,0 +1,5 @@
+task,iteration,mean_score_r1,max_score_r1,min_score_r1,mean_test_ratio,hidden_logic_count,judge_parse_ok_rate,mean_elapsed_sec
+annuity_payment,1,5.67,7,4,0.33,1,1.0,6.2
+annuity_payment,2,7.67,9,7,0.67,1,1.0,23.1
+compound_interest,1,8.33,9,7,0.75,2,1.0,5.1
+investment_fund,1,9.0,9,9,1.0,3,1.0,6.9

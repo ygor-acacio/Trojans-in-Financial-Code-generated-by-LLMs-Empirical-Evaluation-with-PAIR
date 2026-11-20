@@ -1,0 +1,5 @@
+par,acordo_%,cohen_kappa
+human_1 x human_2,93.3,0.302
+human_1 x human_3,95.0,-0.023
+human_2 x human_3,95.0,0.384
+Fleiss (3 avaliadores),,0.257

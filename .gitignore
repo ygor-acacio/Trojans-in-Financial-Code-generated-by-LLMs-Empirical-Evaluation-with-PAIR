@@ -1,0 +1,33 @@
+# ============================================================
+#  Repositorio PRIVADO — TCC completo (organizado).
+#  Entra tudo, EXCETO segredos e lixo regeneravel.
+# ============================================================
+
+# --- SEGREDOS — NUNCA COMMITAR ---------------------------------------------
+.env
+**/.env
+*.key
+*.pem
+
+# --- Ambiente Python / caches ----------------------------------------------
+.venv/
+**/.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+build/
+dist/
+.Python
+.ipynb_checkpoints/
+
+# --- Lixo de SO / editor ----------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+
+# NOTA: .env.example e mantido de proposito (documenta as variaveis, sem token
+# real). O gabarito privado da avaliacao humana e os nomes de avaliadores ficam
+# AQUI no repo privado — e aceitavel, so voce ve.
